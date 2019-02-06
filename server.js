@@ -16,12 +16,14 @@ app.get('/', function(req, res){
 });
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/roadmaps", { useNewUrlParser: true });
-const connection = mongoose.connection;
+mongoose.Promise = global.Promise;
 
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-});
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/Roadmap",
+    {
+        useMongoClient: true
+    }
+);
 
 /* This is the basic find query in Mongo*/
 roadmapRoutes.route('/').get(function(req, res) {
