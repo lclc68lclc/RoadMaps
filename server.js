@@ -2,17 +2,15 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const mongoose = require('mongoose');
 const roadmapRoutes = express.Router();
 const PORT = process.env.PORT || 4000;
 
 let Roadmap = require('./roadmap.model');
-app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/build')));
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });
 
 
