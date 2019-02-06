@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -9,6 +10,9 @@ const PORT = 4000;
 let Roadmap = require('./roadmap.model');
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '/build')));
+
+
 
 mongoose.connect("mongodb://127.0.0.1:27017/roadmaps", { useNewUrlParser: true });
 const connection = mongoose.connection;
