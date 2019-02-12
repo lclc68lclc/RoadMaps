@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const roadmapRoutes = express.Router();
 const PORT = process.env.PORT || 4000;
+const db = require("./models");
 
 let Roadmap = require('./roadmap.model');
 app.use(bodyParser.json());
@@ -22,6 +23,12 @@ mongoose.connect(
         useMongoClient: true
     }
 );
+
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function(){
+        console.log("Listening on port %s", PORT);
+    })
+})
 
 /* This is the basic find query in Mongo*/
 roadmapRoutes.route('/').get(function(req, res) {
