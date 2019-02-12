@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const roadmapRoutes = express.Router();
+const routes = express.Router();
 const PORT = process.env.PORT || 4000;
 const db = require("./models");
 
@@ -27,11 +27,11 @@ mongoose.connect(
 db.sequelize.sync().then(function() {
     app.listen(PORT, function(){
         console.log("Listening on port %s", PORT);
-    })
-})
+    });
+});
 
 /* This is the basic find query in Mongo*/
-roadmapRoutes.route('/').get(function(req, res) {
+routes.route('/').get(function(req, res) {
     Roadmap.find(function(err, results) {
         if (err){ 
             console.log(err);
@@ -41,7 +41,8 @@ roadmapRoutes.route('/').get(function(req, res) {
     });
 });
 
-app.use('/results', roadmapRoutes);
+
+app.use('/results', routes);
 app.listen(PORT, function() {
     console.log('Listening on PORT ' + PORT);
 });

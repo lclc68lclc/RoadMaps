@@ -8,6 +8,7 @@ import "./home.css";
 import ContactPage from "../contact";
 import TestimonialsPage from "../testimonials";
 import ResultsModal from "../resultsmodal";
+import TestModal from "../testmodal";
 import img from "./362.png";
 
 
@@ -84,7 +85,8 @@ return (
             <h6 className="mb-4">
             Make a targeted education/training choice to yeild the income and exact lifestyle you've imagined! Know better upfront how your choices pay out financially.
             </h6>
-            <ResultsModal/>
+            <TestModal/>
+           {/* <ResultsModal/> */}
           </div>
           <MDBCol md="6" xl="5" className="mt-xl-5">
             <img src= {img} alt="" className="img-fluid" />

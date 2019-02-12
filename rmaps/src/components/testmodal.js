@@ -6,51 +6,35 @@ class TestModal extends Component {
   constructor(props){
     super(props);
 
-    this.onChangeIndustry = this.onChangeIndustry.bind(this);
-    this.onChangeLifestyle = this.onChangeLifestyle.bind(this);
-    this.onChangeNeighborhood = this.onChangeNeighborhood.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
     this.state = {
-      neighborhood: '',
-      lifestyle: '',
-      industry: '',
+      neighborhood: 'Where do you want to live?',
+      lifestyle: 'How do you want to live?',
+      career: 'What do you want to do?',
       modal: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-
-  onChangeNeighborhood(e) {
+  toggle = () => {
     this.setState({
-      neighborhood: e.target.value
+      modal: !this.state.modal
     });
   }
 
-  onChangeLifestyle(e) {
+  handleChange(e){
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
     this.setState({
-      lifestyle: e.target.value
+      [name]: value
     });
   }
 
-  onChangeIndustry(e) {
-    this.setState({
-      industry: e.target.value
-    });
-  }
-
+  
   onSubmit(e){
     e.preventDefault();
-
-    console.log(`Form submitted:`);
-    console.log(`neighborhood: ${this.state.neighborhood}`);
-    console.log(`lifestyle: ${this.state.lifestyle}`);
-    console.log(`industry: ${this.state.industry}`);
-
-    this.setState({
-        neighborhood: '',
-        lifestyle: '',
-        industry: ''
-    });
   }
 
   render() {
@@ -61,8 +45,8 @@ class TestModal extends Component {
         <MDBModalHeader toggle={this.toggle}>Lifestyle Test</MDBModalHeader>
         <MDBModalBody>
         <form onSubmit={this.onSubmit}>
-            <select className="browser-default custom-select" value={this.state.neighborhood}
-                onInput={this.onChangeNeighborhood}>
+            <select className="browser-default custom-select" name="neighborhood" value={this.state.neighborhood}
+                onChange={this.handleChange}>
                 <option>Where do you want to live?</option>
                 <option value="fulton">Atlanta</option>
                 <option value="dekalb">Decatur</option>
@@ -70,15 +54,15 @@ class TestModal extends Component {
                 <option value="cobb">Marrietta</option>
                 <option value="henry">Stockbridge</option>
             </select>
-            <select className="browser-default custom-select" value={this.state.lifestyle}
-                  onInput={this.onChangeLifestyle}>
+            <select className="browser-default custom-select" name="lifestyle" value={this.state.lifestyle}
+                  onInput={this.handleChange}>
                 <option>How do you want to live?</option>
-                <option value="comfortable" icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg">A Comfortable Life</option>
+                <option value="comfortable" >A Comfortable Life</option>
                 <option value="good">The Good Life</option>
                 <option value="best">My Best Life</option>
             </select>
-            <select className="browser-default custom-select" value={this.state.career}
-                onInput={this.onChangeCareer}>
+            <select className="browser-default custom-select" name="career" value={this.state.career}
+                onInput={this.handleChange}>
                 <option>What do you want to do?</option>
                 <option value="help">Help People</option>
                 <option value="hands">With My Hands</option>
