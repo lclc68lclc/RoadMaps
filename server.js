@@ -3,46 +3,85 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = express.Router();
+const routes = require('./routes/apiroutes');
 const PORT = process.env.PORT || 4000;
 const db = require("./models");
+const cors = require('cors');
+const mysql = require('mysql');
 
-let Roadmap = require('./roadmap.model');
+const connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'Fl@shahhahhgord0n',
+  database : 'roadmaps_db'
+});
+
+connection.connect();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/build')));
+//app.use('/results', routes);
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });
 
 
-mongoose.Promise = global.Promise;
+
+app.get('/results', function(req, res) {
+    //connection.query("SELECT housesize, annualsal FROM mortgagedata WHERE neighborhood = 'henry' AND housesize <= '3bd';", function(err, results){
+      //  if(err) throw err;
+        //res.json(results);
+    //});
+
+    switch (req.body){
+        case "help":
+            connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE OccupationClassification IN('Community and Social Service', 'Education and Library', 'Healthcare', 'Protective Service', 'Personal Care') AND AvgAnnualWage > 50000;", function(err, results){
+            if(err) throw err;
+            res.json(results);
+        });
+        case "hands":
+        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE `﻿OccupationClassification` IN('Maintenance', 'Construction', 'Maintenance and Repair', 'Farming, Fishing and Forestry', 'Production', 'Transportation', 'Food Prep and Service') AND AvgAnnualWage > 50000;", function(err, results){
+            if(err) throw err;
+            res.json(results);
+        });
+        case "stem":
+        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND AvgAnnualWage > 50000;", function(err, results){
+            if(err) throw err;
+            res.json(results);
+        });
+        case "business":
+        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE `﻿OccupationClassification` IN('Management', 'Business and Financial Operations', 'Sales', 'Office and Admin Support', 'Legal') AND AvgAnnualWage > 50000;", function(err, results){
+            if(err) throw err;
+            res.json(results);
+        });
+        default:
+        connection.query("SELECT `OccupationalTitle`, `EducationNeeded`, `AvgAnnualWage` FROM `lwda` WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND `AvgAnnualWage` > 50000;", function(err, results){
+            if(err) throw err;
+            res.json(results);
+        });
+    }
+});
+
+{/*mongoose.Promise = global.Promise;
 
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/Roadmap",
     {
         useMongoClient: true
     }
-);
+); 
 
+//----------------------- Sequelize --------------//
 db.sequelize.sync().then(function() {
-    app.listen(PORT, function(){
-        console.log("Listening on port %s", PORT);
+    app.listen(3000, function(){
+        console.log("Listening on port %s", 3000);
     });
 });
-
-/* This is the basic find query in Mongo*/
-routes.route('/').get(function(req, res) {
-    Roadmap.find(function(err, results) {
-        if (err){ 
-            console.log(err);
-        } else {
-            res.json(results);
-        }
-    });
-});
+*/}
 
 
-app.use('/results', routes);
+
+
+
 app.listen(PORT, function() {
     console.log('Listening on PORT ' + PORT);
 });

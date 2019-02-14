@@ -19,10 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         annualsal: {
             type: DataTypes.INTEGER(11),
             allowNull: true
-        },
-            tableName: 'mortgagedata',
-            
-            timestampe: false
+        }
     });
     return mortgagedata;
 };

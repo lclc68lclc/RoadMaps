@@ -39,10 +39,7 @@ module.exports = function(sequelize, DataTypes) {
         MedianWage: {
             type: DataTypes.DOUBLE,
             allowNull: true
-        },
-            tableName: 'lwda',
-            
-            timestampe: false
+        }
     });
     return lwda;
 };

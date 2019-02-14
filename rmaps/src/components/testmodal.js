@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { MDBInput, MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
+import api from "../utils/api";
+import axios from 'axios';
 
 class TestModal extends Component {
 
@@ -10,7 +12,8 @@ class TestModal extends Component {
       neighborhood: 'Where do you want to live?',
       lifestyle: 'How do you want to live?',
       career: 'What do you want to do?',
-      modal: false
+      modal: false,
+      results: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,7 +37,12 @@ class TestModal extends Component {
 
   
   onSubmit(e){
-    e.preventDefault();
+    const value = e.target.value;
+    console.log("got info");
+    axios.get('/results')
+    .then(function (response) {
+      console.log(response);
+    });
   }
 
   render() {
@@ -70,9 +78,10 @@ class TestModal extends Component {
                 <option value="business">Making Boss Moves</option>
             </select>
            </form>
+           
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn color="red" onClick={this.toggle}>Sumbit</MDBBtn>
+          <MDBBtn color="red" onClick={this.toggle}>Submit</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
       </MDBContainer>
