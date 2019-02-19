@@ -27,28 +27,28 @@ app.get('/results', cors(), function(req, res) {
 
     switch (req.body){
         case "help":
-            connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE OccupationClassification IN('Community and Social Service', 'Education and Library', 'Healthcare', 'Protective Service', 'Personal Care') AND AvgAnnualWage > 50000;", function(err, results){
+            sequelize.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM `lwdas` WHERE OccupationClassification IN('Community and Social Service', 'Education and Library', 'Healthcare', 'Protective Service', 'Personal Care') AND AvgAnnualWage > 50000;", function(err, results){
             if(err) throw err;
             res.json(results);
         });
         case "hands":
-        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE `﻿OccupationClassification` IN('Maintenance', 'Construction', 'Maintenance and Repair', 'Farming, Fishing and Forestry', 'Production', 'Transportation', 'Food Prep and Service') AND AvgAnnualWage > 50000;", function(err, results){
+        sequelize.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM `lwdas` WHERE `﻿OccupationClassification` IN('Maintenance', 'Construction', 'Maintenance and Repair', 'Farming, Fishing and Forestry', 'Production', 'Transportation', 'Food Prep and Service') AND AvgAnnualWage > 50000;", function(err, results){
             if(err) throw err;
             res.json(results);
         });
         case "stem":
-        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND AvgAnnualWage > 50000;", function(err, results){
+        sequelize.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM `lwdas` WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND AvgAnnualWage > 50000;", function(err, results){
             if(err) throw err;
             res.json(results);
         });
         case "business":
-        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM lwda WHERE `﻿OccupationClassification` IN('Management', 'Business and Financial Operations', 'Sales', 'Office and Admin Support', 'Legal') AND AvgAnnualWage > 50000;", function(err, results){
+        sequelize.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM `lwdas` WHERE `﻿OccupationClassification` IN('Management', 'Business and Financial Operations', 'Sales', 'Office and Admin Support', 'Legal') AND AvgAnnualWage > 50000;", function(err, results){
             if(err) throw err;
             res.json(results);
         });
         default:
-        connection.query("SELECT `OccupationalTitle`, `EducationNeeded`, `AvgAnnualWage` FROM `lwda` WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND `AvgAnnualWage` > 50000;", function(err, results){
-          if(err) throw err;
+        sequelize.query("SELECT `OccupationalTitle`, `EducationNeeded`, `AvgAnnualWage` FROM `lwdas` WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND `AvgAnnualWage` > 50000;", {type: sequelize.QueryTypes.SELECT})
+        .then(lwdas => {
           res.json(results);
         });
     }
