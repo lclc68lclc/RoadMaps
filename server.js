@@ -9,14 +9,6 @@ const db = require("./models");
 const cors = require('cors');
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'Fl@shahhahhgord0n',
-  database : 'roadmaps_db'
-});
-
-connection.connect();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/build')));
@@ -69,7 +61,7 @@ mongoose.connect(
     {
         useMongoClient: true
     }
-); 
+); */}
 
 //----------------------- Sequelize --------------//
 db.sequelize.sync().then(function() {
@@ -77,7 +69,6 @@ db.sequelize.sync().then(function() {
         console.log("Listening on port %s", 3000);
     });
 });
-*/}
 
 
 
