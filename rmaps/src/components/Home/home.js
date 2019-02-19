@@ -77,7 +77,7 @@ return (
     <MDBMask className="d-flex justify-content-center align-items-center gradient">
       <MDBContainer>
         <MDBRow>
-          <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+          <div className="text-center text-md-left col-md-6 mt-xl-5 mb-5">
             <h1 className="h1-responsive font-weight-bold mt-sm-5">
               Maximize your income to live the life you've dreamed about{" "}
             </h1>
@@ -86,7 +86,6 @@ return (
             Make a targeted education/training choice to yeild the income and exact lifestyle you've imagined! Know better upfront how your choices pay out financially.
             </h6>
             <TestModal/>
-           {/* <ResultsModal/> */}
           </div>
           <MDBCol md="6" xl="5" className="mt-xl-5">
             <img src= {img} alt="" className="img-fluid" />

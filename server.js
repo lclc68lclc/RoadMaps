@@ -17,16 +17,17 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/build')));
 //app.use('/results', routes);
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '/build', 'index.html'));
-});
+//app.get('/', function(req, res){
+    //res.sendFile(path.join(__dirname, '/build', 'index.html'));
+//});
 
 
 
-app.get('/results', function(req, res) {
+app.get('/results', cors(), function(req, res) {
     //connection.query("SELECT housesize, annualsal FROM mortgagedata WHERE neighborhood = 'henry' AND housesize <= '3bd';", function(err, results){
       //  if(err) throw err;
         //res.json(results);
@@ -55,8 +56,8 @@ app.get('/results', function(req, res) {
         });
         default:
         connection.query("SELECT `OccupationalTitle`, `EducationNeeded`, `AvgAnnualWage` FROM `lwda` WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND `AvgAnnualWage` > 50000;", function(err, results){
-            if(err) throw err;
-            res.json(results);
+          if(err) throw err;
+          res.json(results);
         });
     }
 });

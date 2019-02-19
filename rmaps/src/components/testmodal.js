@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { MDBInput, MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
-import api from "../utils/api";
-import axios from 'axios';
+import {MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
+//import api from "../utils/api";
+//import axios from 'axios';
+import ResultsModal from "./resultsmodal";
 
 class TestModal extends Component {
 
@@ -13,7 +14,7 @@ class TestModal extends Component {
       lifestyle: 'How do you want to live?',
       career: 'What do you want to do?',
       modal: false,
-      results: []
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,12 +38,9 @@ class TestModal extends Component {
 
   
   onSubmit(e){
-    const value = e.target.value;
+    e.preventDefault();
     console.log("got info");
-    axios.get('/results')
-    .then(function (response) {
-      console.log(response);
-    });
+    window.location.replace('/Results');
   }
 
   render() {
@@ -50,9 +48,9 @@ class TestModal extends Component {
       <MDBContainer>
       <MDBBtn outline color="white" onClick={this.toggle}>Take the lifestyle test</MDBBtn>
       <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-        <MDBModalHeader toggle={this.toggle}>Lifestyle Test</MDBModalHeader>
+        <MDBModalHeader toggle={this.toggle}><h2>Lifestyle Test</h2></MDBModalHeader>
         <MDBModalBody>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} id="testForm">
             <select className="browser-default custom-select" name="neighborhood" value={this.state.neighborhood}
                 onChange={this.handleChange}>
                 <option>Where do you want to live?</option>
@@ -63,14 +61,14 @@ class TestModal extends Component {
                 <option value="henry">Stockbridge</option>
             </select>
             <select className="browser-default custom-select" name="lifestyle" value={this.state.lifestyle}
-                  onInput={this.handleChange}>
+                  onChange={this.handleChange}>
                 <option>How do you want to live?</option>
                 <option value="comfortable" >A Comfortable Life</option>
                 <option value="good">The Good Life</option>
                 <option value="best">My Best Life</option>
             </select>
             <select className="browser-default custom-select" name="career" value={this.state.career}
-                onInput={this.handleChange}>
+                onChange={this.handleChange}>
                 <option>What do you want to do?</option>
                 <option value="help">Help People</option>
                 <option value="hands">With My Hands</option>
@@ -78,10 +76,9 @@ class TestModal extends Component {
                 <option value="business">Making Boss Moves</option>
             </select>
            </form>
-           
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn color="red" onClick={this.toggle}>Submit</MDBBtn>
+          <MDBBtn color="red" type="submit" form="testForm" onClick={this.toggle}>Submit</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
       </MDBContainer>

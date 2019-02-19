@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home/home";
 import TestModal from "./components/testmodal";
 import ResultsModal from "./components/resultsmodal";
+import Results from './components/Results/Results';
 
 class App extends Component {
 
@@ -27,7 +28,7 @@ class App extends Component {
         <Switch>
         <Route exact path = "/" component = {Home} />;
         <Route exact path = "/TestModal" component = {TestModal} />;
-        <Route exact path = "/ResultsModal" component = {ResultsModal} />;
+        <Route exact path = "/Results" component = {Results} />;
         </Switch>
         </div>
       </Router>
