@@ -20,7 +20,7 @@ toggle = () => {
 }
 
 componentDidMount() {
-  axios.get('http://localhost:4000/results')
+  axios.get('http://localhost:4000/resultsapi')
     .then((response) => {
     this.setState({results: response.data});
     }).catch((error) => {
