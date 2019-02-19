@@ -8,8 +8,10 @@ const PORT = process.env.PORT || 4000;
 const db = require("./models");
 const cors = require('cors');
 const mysql = require('mysql');
-const sequelize = require('sequelize');
 
+const connection = mysql.createConnection(process.env.JAWSDB_URL);
+
+connection.connect();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/build')));
@@ -48,9 +50,9 @@ app.get('/results', cors(), function(req, res) {
             res.json(results);
         });
         default:
-        sequelize.query("SELECT `OccupationalTitle`, `EducationNeeded`, `AvgAnnualWage` FROM `lwdas` WHERE `﻿OccupationClassification` IN('Computer', 'Architecture and Engineering', 'Art, Design, Entertainment, Sports and Media', 'Life, Physical and Social Science') AND `AvgAnnualWage` > 50000;", {type: sequelize.QueryTypes.SELECT})
-        .then(lwdas => {
-          res.json(results);
+        connection.query("SELECT OccupationalTitle, EducationNeeded, AvgAnnualWage FROM `lwdas` WHERE `﻿OccupationClassification` IN('Management', 'Business and Financial Operations', 'Sales', 'Office and Admin Support', 'Legal') AND AvgAnnualWage > 50000;", function(err, results){
+            if(err) throw err;
+            res.json(results);
         });
     }
 });
@@ -62,14 +64,14 @@ mongoose.connect(
     {
         useMongoClient: true
     }
-); */}
+); 
 
 //----------------------- Sequelize --------------//
 db.sequelize.sync().then(function() {
     app.listen(3000, function(){
         console.log("Listening on port %s", 3000);
     });
-});
+});*/}
 
 
 
