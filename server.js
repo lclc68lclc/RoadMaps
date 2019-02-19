@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 4000;
 const db = require("./models");
 const cors = require('cors');
 const mysql = require('mysql');
+const sequelize = require('sequelize');
 
 
 app.use(bodyParser.json());
