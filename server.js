@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, '/build')));
 
 
 
-app.get('/resultsapi', cors(), function(req, res) {
+app.get('/results', cors(), function(req, res) {
     //connection.query("SELECT housesize, annualsal FROM mortgagedata WHERE neighborhood = 'henry' AND housesize <= '3bd';", function(err, results){
       //  if(err) throw err;
         //res.json(results);

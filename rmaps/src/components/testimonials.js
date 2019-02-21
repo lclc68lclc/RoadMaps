@@ -1,72 +1,49 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBAnimation } from "mdbreact";
+import Demo from "./generatednumbers";
+import Demo2 from "./generatednumbers2";
+import Demo3 from "./generatednumbers3";
 
 const TestimonialsPage = () => {
   return (
+    <MDBAnimation reveal type="fadeIn">
     <MDBContainer>
       <section className="text-center my-5">
-        <h2 className="h1-responsive font-weight-bold my-5">
-          Testimonials
-        </h2>
-        <p className="dark-grey-text w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
-        </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
-            <MDBCard testimonial>
-              <MDBCardBody>
-              <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon far icon="star-half" className="red-text" />
-                <h4 className="font-weight-bold mb-4">John Doe</h4>
+              <MDBCardBody className="default-color">
+                <Demo/>
                 <hr />
-                <p className="dark-grey-text mt-4">
-                  <MDBIcon icon="quote-left" className="pr-2" />
-                  Lorem ipsum dolor sit amet eos adipisci, consectetur
-                  adipisicing elit.
+                <p className="text-white mt-4">
+                  The amount of student loans in the United States.
                 </p>
+                <footer className="blockquote-footer mb-3">Source: <cite title="Source Title">collegedebt.com</cite></footer>
               </MDBCardBody>
-            </MDBCard>
           </MDBCol>
           <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
-            <MDBCard testimonial>
-              <MDBCardBody>
-              <MDBIcon icon="star" className="red-text" />
-                    <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon icon="star" className="red-text" />
-                <h4 className="font-weight-bold mb-4">Anna Aston</h4>
+              <MDBCardBody className="primary-color">
+                <Demo2/>
                 <hr />
-                <p className="dark-grey-text mt-4">
-                  <i className="fa fa-quote-left pr-2" />
-                  Neque cupiditate assumenda in maiores repudiandae mollitia
-                  architecto.
+                <p className="text-white mt-4">
+                  College graduates that took a job that <b>did not</b> require a degree.
                 </p>
+                <footer className="blockquote-footer mb-3">Source: <cite title="Source Title">cnbc.com</cite></footer>
               </MDBCardBody>
-            </MDBCard>
           </MDBCol>
           <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
-            <MDBCard testimonial>
-              <MDBCardBody>
-              <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon icon="star" className="red-text" />
-                  <MDBIcon icon="star" className="red-text" />
-                <h4 className="font-weight-bold mb-4">Maria Kate</h4>
+              <MDBCardBody className="secondary-color">
+                <Demo3/>
                 <hr />
-                <p className="dark-grey-text mt-4">
-                  <i className="fa fa-quote-left pr-2" />
-                  Delectus impedit saepe officiis ab aliquam repellat rem unde
-                  ducimus.
+                <p className="text-white mt-4">
+                  Career fields that will disappear by 2026.
                 </p>
+                <footer className="blockquote-footer mb-3">Source: <cite title="Source Title">moneywise.com</cite></footer>
               </MDBCardBody>
-            </MDBCard>
           </MDBCol>
         </MDBRow>
       </section>
     </MDBContainer>
+    </MDBAnimation>
   );
 }
 

@@ -13,6 +13,22 @@
     background-position: center center;
     height: 100vh;
     }
+
+    #apppage .view2 {
+        background-image: url('rmap2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 100vh;
+    }
+
+    #apppage .view3 {
+        background-image: url('rmap3.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 100vh;
+    }
     
     #apppage h6 {
     line-height: 1.7;

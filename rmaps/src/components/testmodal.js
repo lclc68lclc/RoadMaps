@@ -46,7 +46,7 @@ class TestModal extends Component {
   render() {
     return (
       <MDBContainer>
-      <MDBBtn outline color="white" onClick={this.toggle}>Take the lifestyle test</MDBBtn>
+      <MDBBtn size="lg" onClick={this.toggle}>Take the lifestyle test</MDBBtn>
       <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
         <MDBModalHeader toggle={this.toggle}><h2>Lifestyle Test</h2></MDBModalHeader>
         <MDBModalBody>

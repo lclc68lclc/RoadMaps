@@ -5,56 +5,46 @@ const FeaturesPage = () => {
   return (
     <section className="my-4">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
-          Why is it so great?
+          Why RoadMap$?
         </h2>
-        <p className="lead grey-text w-responsive text-center mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam.
-        </p>
-
+        
         <MDBRow>
           <MDBCol md="4">
             <MDBRow className="mb-3">
               <MDBCol size="2">
                 <MDBIcon
-                  icon="flag-checkered"
+                  icon="graduation-cap"
                   size="2x"
                   className="red-text"
                 />
               </MDBCol>
               <MDBCol size="10">
-                <h5 className="font-weight-bold mb-3">International</h5>
+              <h5>Education</h5>
                 <p className="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit maiores nam, aperiam minima assumenda deleniti
-                  hic.
+                  Every year more students graduate and aren't able to find work that will allow them
+                  to thrive.
                 </p>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="2">
-                <MDBIcon icon="flask" size="2x" className="red-text" />
+                <MDBIcon icon="file-invoice-dollar" size="2x" className="red-text" />
               </MDBCol>
               <MDBCol size="10">
-                <h5 className="font-weight-bold mb-3">Experimental</h5>
+              <h5>Debt</h5>
                 <p className="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit maiores nam, aperiam minima assumenda deleniti
-                  hic.
+                  Every second the student loan debt crisis increases.
                 </p>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="2">
-                <MDBIcon icon="glass-martini" size="2x" className="red-text" />
+                <MDBIcon icon="hand-holding-usd" size="2x" className="red-text" />
               </MDBCol>
               <MDBCol size="10">
-                <h5 className="font-weight-bold mb-3">Relaxing</h5>
+                <h5>Wealth</h5>
                 <p className="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit maiores nam, aperiam minima assumenda deleniti
-                  hic.
+                  Every year more and more Americans fall into the wealth gap.
                 </p>
               </MDBCol>
             </MDBRow>
@@ -69,14 +59,13 @@ const FeaturesPage = () => {
           <MDBCol md="4">
             <MDBRow className="mb-3">
               <MDBCol size="2">
-                <MDBIcon icon="heart" size="2x" className="red-text" />
+                <MDBIcon icon="road" size="2x" className="red-text" />
               </MDBCol>
               <MDBCol size="10">
-                <h5 className="font-weight-bold mb-3">Beloved</h5>
+              <h5>Career</h5>
                 <p className="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit maiores nam, aperiam minima assumenda deleniti
-                  hic.
+                  RoadMap$ is designed to help you find targeted career and training options
+                  that yield a desired income and lifestyle.
                 </p>
               </MDBCol>
             </MDBRow>
@@ -85,24 +74,20 @@ const FeaturesPage = () => {
                 <MDBIcon icon="bolt" size="2x" className="red-text" />
               </MDBCol>
               <MDBCol size="10">
-                <h5 className="font-weight-bold mb-3">Rapid</h5>
+                <h5>Training</h5>
                 <p className="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit maiores nam, aperiam minima assumenda deleniti
-                  hic.
+                With RoadMap$ you’ll see upfront how career and training choices playout financially in real-time.
                 </p>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="2">
-                <MDBIcon icon="magic" size="2x" className="red-text" />
+                <MDBIcon icon="hand-holding-usd" size="2x" className="red-text" />
               </MDBCol>
               <MDBCol size="10">
-                <h5 className="font-weight-bold mb-3">Magical</h5>
+              <h5>Resources</h5>
                 <p className="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit maiores nam, aperiam minima assumenda deleniti
-                  hic.
+                  Trusted resources to help you manage, multiply and maximize your income & lifestyle.
                 </p>
               </MDBCol>
             </MDBRow>

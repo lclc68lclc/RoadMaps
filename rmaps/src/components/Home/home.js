@@ -7,10 +7,10 @@ import TeamPage from "../team";
 import "./home.css";
 import ContactPage from "../contact";
 import TestimonialsPage from "../testimonials";
-import ResultsModal from "../resultsmodal";
 import TestModal from "../testmodal";
 import img from "./362.png";
-
+import CarouselPage from "../carousel";
+import BlogPage from "../fasttrack";
 
 
 class Home extends React.Component {
@@ -35,7 +35,7 @@ return (
       <MDBNavbar color="danger-color" dark expand="md" fixed="top" scrolling transparent>
         <MDBContainer>
           <MDBNavbarBrand>
-            <strong>Roadmaps</strong>
+            <strong>Roadmap$</strong>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.handleTogglerClick} />
           <MDBCollapse isOpen={this.state.collapsed} navbar>
@@ -44,10 +44,7 @@ return (
                 <MDBNavLink to="/">Home</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink to="#!">Link</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="#!">Profile</MDBNavLink>
+                <MDBNavLink to="#!">About Us</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right>
@@ -73,7 +70,8 @@ return (
       {this.state.collapsed && overlay}
     </div>
   </Router>
-  <MDBView>
+  <CarouselPage/>
+  {/*<MDBView>
     <MDBMask className="d-flex justify-content-center align-items-center gradient">
       <MDBContainer>
         <MDBRow>
@@ -93,24 +91,7 @@ return (
         </MDBRow>
       </MDBContainer>
     </MDBMask>
-  </MDBView>
-
-  <MDBContainer>
-    <MDBRow className="py-5">
-      <MDBCol md="12" className="text-center">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-          sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <hr/>
-      </MDBCol>
-    </MDBRow>
-  </MDBContainer>
+  </MDBView>*/}
 
   <MDBContainer>
     <MDBRow className="py-3">
@@ -119,6 +100,24 @@ return (
       </MDBCol>
     </MDBRow>
   </MDBContainer>
+
+  <MDBContainer>
+    <MDBRow className="py-3">
+      <MDBCol md="12" className="text-center">
+        <BlogPage/>
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+  
+
+  <MDBContainer>
+    <MDBRow className="py-3">
+      <MDBCol md="12" className="text-center">
+        <TestModal/>
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+
   
   <MDBContainer>
     <MDBRow className="py-3">
@@ -128,6 +127,7 @@ return (
     </MDBRow>
   </MDBContainer>
   
+
   <MDBContainer>
     <MDBRow className="py-3">
       <MDBCol md="12" className="text-center">
